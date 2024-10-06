@@ -6,13 +6,21 @@ import * as path from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
-    sourcemap: false,
+    sourcemap: true,
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+  },
+  server: {
+    hmr: {
+      overlay: false,
+    },
+    watch: {
+      usePolling: true,
+    },
   },
   test: {
     css: false,

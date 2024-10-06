@@ -4,6 +4,7 @@ import {
   createTheme,
   responsiveFontSizes,
 } from '@mui/material/styles';
+import { red } from "@mui/material/colors";
 import { useSelector } from 'react-redux';
 import { selectMode } from '@/features/user/userSlice';
 
@@ -14,10 +15,13 @@ function AppThemeProvider({ children }) {
       palette: {
         mode,
         primary: {
-          main: '#1c9c7c',
+          main: "#556cd6",
         },
         secondary: {
-          main: '#9DF3C4',
+          main: "#19857b",
+        },
+        error: {
+          main: red.A400,
         },
         Ink: {
           Darkest: '#000000',
