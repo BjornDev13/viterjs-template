@@ -4,12 +4,12 @@ const baselightTheme = createTheme({
   direction: "ltr",
   palette: {
     primary: {
-      main: "#5D87FF",
-      light: "#ECF2FF",
+      main: "#FF2121",
+      light: "#f56d6d", // Added light color for #FF2121
       dark: "#4570EA",
     },
     secondary: {
-      main: "#49BEFF",
+      main: "#D53F3F",
       light: "#E8F7FF",
       dark: "#23afdb",
     },
@@ -20,7 +20,7 @@ const baselightTheme = createTheme({
       contrastText: "#ffffff",
     },
     info: {
-      main: "#539BFF",
+      main: "#D53F3F",
       light: "#EBF3FE",
       dark: "#1682d4",
       contrastText: "#ffffff",
@@ -57,25 +57,21 @@ const baselightTheme = createTheme({
     divider: "#e5eaef",
   },
   typography: {
-    
     fontSize: 14,
     h1: {
       fontWeight: 600,
       fontSize: "2.25rem",
       lineHeight: "2.75rem",
-      
     },
     h2: {
       fontWeight: 600,
       fontSize: "1.875rem",
       lineHeight: "2.25rem",
-      
     },
     h3: {
       fontWeight: 600,
       fontSize: "1.5rem",
       lineHeight: "1.75rem",
-      
     },
     h4: {
       fontWeight: 600,

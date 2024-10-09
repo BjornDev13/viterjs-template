@@ -29,12 +29,39 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
     </Stack>
     <Box mt="25px">
       <Button
-        color="primary"
-        variant="contained"
+        color="secondary"
+        variant="outlined"
         size="large"
-        fullWidth
+        sx={{
+            width: 'fit-content',
+            backgroundColor: "primary.main",
+            fontWeight: 700,
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            borderRadius: '20px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            justifyContent: 'flex-start',
+            ":hover": { backgroundColor: "primary.main" }
+          }}
         onClick={handleSignIn}
       >
+        <Box
+          sx={{
+            width: '70px',
+            height: '70px',
+            backgroundColor: 'white',
+            borderRadius: '20px',
+            padding: '5px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginRight: '8px'
+          }}
+        >
+          <img src="/images/logos/google-logo.png" alt="Google logo" />
+        </Box>
         Ingresar con cuenta de Google
       </Button>
     </Box>

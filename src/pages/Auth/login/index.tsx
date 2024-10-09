@@ -42,18 +42,38 @@ const Login2 = () => {
               elevation={9}
               sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}
             >
-              <Box display="flex" alignItems="center" justifyContent="center">
-                <Logo />
-              </Box>
+              <Box
+                sx={{
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  height: "80px",
+                  width: "300px",
+                  overflow: "hidden",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  textDecoration: "none",
+                  backgroundImage: "url('/images/logos/ICONO-UrgentCare.png')",
+                  backgroundSize: "280px",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  borderRadius: "20px",
+                  border: 'none',
+                  marginTop: "5px",
+                }}
+              >
+
+                </Box>
               <AuthLogin
                 subtext={
                   <Typography
-                    variant="subtitle1"
+                    variant="h3"
                     textAlign="center"
                     color="textSecondary"
                     mb={1}
+                    mt={2}
                   >
-                    Calendario Venemergencia
+                    Citas de Citas Venemergencia
                   </Typography>
                 }
               />

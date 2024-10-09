@@ -1,5 +1,4 @@
-import React from 'react';
-import { Typography, Stack, Container, Button } from '@mui/material';
+import { Container } from '@mui/material';
 import PageContainer from '@/components/DashboardLayout/components/AdminContainer/PageContainer';
 import ListEvents from '@/components/ListEvents';
 // import { useApiCalendar } from '@/hooks/useApiCalendar';

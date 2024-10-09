@@ -5,6 +5,7 @@ import SelectForm from '../global/SelectForm';
 import DatePickerForm from '../global/inputs/DatePickerForm';
 import InputForm from '../global/inputs/InputForm';
 import { IconZoom } from '@tabler/icons-react';
+import { useNavigate } from 'react-router-dom';
 
 type FiltersProps = {
     control: any;
@@ -14,14 +15,15 @@ type FiltersProps = {
 }
 
 export default function Filters({ control, calendars, setCalendarSelected, setfilters }: FiltersProps) {
+    const navigate = useNavigate();
+
     return (
         <DashboardCard
             title="Filtros"
             action={(
                 <Button
-                    color="primary"
+                    onClick={() => navigate("/schedule")}
                     variant="contained"
-                    onClick={() => console.log('agregar')}
                     sx={{
                         width: 140,
                         fontWeight: 'bold'

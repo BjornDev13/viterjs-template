@@ -18,7 +18,7 @@ interface SelectFormProps {
   className?: Record<string, string>;
   control: any; // You can replace this with the correct type for react-hook-form's control
   validations?: Record<string, unknown>; // Adjust the type as needed
-  data: { label: string; value: string | boolean | number }[];
+  data: { value: string; label: string | React.ReactNode }[];
   disabled?: boolean;
   fullWidth?: boolean;
   placeholder?: string;

@@ -4,8 +4,7 @@ import { Box } from '@mui/material'
 import Filters from './Filters'
 import { useForm } from "react-hook-form"
 import { useApiCalendar } from '@/hooks/useApiCalendar'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import LoadListBody from './LoadListBody'
 
 interface Inputs {
   calendarId?: string;
@@ -43,17 +42,19 @@ export default function ListEvents() {
     setValue('calendarId', calendarId)
   }
 
-  const { eventsList, colors, calendars, calendaColorHas, setCalendaColorHas, setfilters } = useApiCalendar({ loadEvents: true, callBack: setDefaultCalendarId })
+  const { eventsList, isLoad, calendars, calendaColorHas, setCalendaColorHas, setfilters } = useApiCalendar({ loadEvents: true, callBack: setDefaultCalendarId })
 
 
   const submit = (data: Inputs) => {
     const newData = {
-      ...data,
+      showDeleted: data.showDeleted,
+      maxResults: data.maxResults,
+      pageToken: data.pageToken,
       ...(data.orderBy === 'startTime' ? { orderBy: 'startTime', singleEvents: true } : { orderBy: 'updated' }),
       ...(data.timeMin && { timeMin: data.timeMin.toISOString() }),
       ...(data.timeMax && { timeMax: data.timeMax.toISOString() })
     }
-    setfilters(data)
+    setfilters(newData)
   }
 
   const setCalendarColor = (calendarId: string) => {
@@ -71,7 +72,13 @@ export default function ListEvents() {
         <form onSubmit={handleSubmit(submit)}>
             <Filters control={control} calendars={calendars} setCalendarSelected={setCalendarColor} setfilters={setfilters} />
         </form>
-        <ListBody data={eventsList} color={calendaColorHas} />
+        {
+          isLoad ? (
+            <LoadListBody />
+          ) : (
+            <ListBody data={eventsList} color={calendaColorHas}  />
+          )
+        }
     </Box>
   )
 }

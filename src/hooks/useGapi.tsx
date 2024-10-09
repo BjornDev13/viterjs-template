@@ -35,7 +35,6 @@ const useGapi = () => {
                     scope: config.scope,
                 }).then(() => {
                     setGapiLoaded(true);
-                    console.log('GAPI initialized');
                 });
             });
         };
@@ -43,7 +42,7 @@ const useGapi = () => {
         if (typeof window !== 'undefined') {
             initializeGapi();
         }
-    }, [config]);
+    }, []);
 
     return gapiLoaded;
 };

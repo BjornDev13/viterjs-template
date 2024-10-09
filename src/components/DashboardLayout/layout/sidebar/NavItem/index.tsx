@@ -9,6 +9,7 @@ import {
   useTheme,
   ListItemButton,
 } from "@mui/material";
+import { fontWeight } from "@mui/system";
 
 type NavGroup = {
   [x: string]: any;
@@ -40,13 +41,14 @@ const NavItem = ({ item, level, pathDirect, onClick }: ItemType) => {
       whiteSpace: "nowrap",
       marginBottom: "2px",
       padding: "8px 10px",
+      fontWeight: 600,
       borderRadius: "8px",
       backgroundColor: level > 1 ? "transparent !important" : "inherit",
       color: theme.palette.text.secondary,
       paddingLeft: "10px",
       "&:hover": {
         backgroundColor: theme.palette.primary.light,
-        color: theme.palette.primary.main,
+        color: 'white',
       },
       "&.Mui-selected": {
         color: "white",

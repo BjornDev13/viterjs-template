@@ -1,12 +1,5 @@
 import { IconCalendarDue } from "@tabler/icons-react";
-import {
-  IconApps,
-  IconCode,
-  IconLayoutDashboard,
-  IconUser,
-} from "@tabler/icons-react";
 
-import { uniqueId } from "lodash";
 
 const Menuitems = [
   {
@@ -14,10 +7,16 @@ const Menuitems = [
     subheader: "INICIO",
   },
   {
-    id: uniqueId(),
+    id: 1,
     title: "Citas",
     icon: IconCalendarDue,
     href: "/",
+  },
+  {
+    id: 2,
+    title: "Calendarios",
+    icon: IconCalendarDue,
+    href: "/calendars",
   },
 
   // {
