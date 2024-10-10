@@ -269,6 +269,32 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
     });
   };
 
+  const insertAcl = async (calendarId: string, email: string): Promise<void> => {
+    setIsLoad(true);
+    await window?.gapi?.client?.calendar?.acl.insert({
+      calendarId: calendarId,
+      resource: {
+        role: 'reader',
+        scope: {
+          type: 'user',
+          value: email
+        }
+      }
+    }).then(() => {
+      setIsLoad(false);
+      enqueueSnackbar('El calendario fue compartido con éxito', {
+        variant: 'success'
+      });
+      listCalendars(); // Refresh the list of calendars
+    }).catch((error: any) => {
+      setIsLoad(false);
+      enqueueSnackbar('Error al insertar el ACL, por favor intente de nuevo', {
+        variant: 'error'
+      });
+      console.error('Error inserting ACL', error);
+    });
+  };
+
   useEffect(() => {
     const authData = window.sessionStorage.getItem('auth');
     if (authData) {
@@ -321,6 +347,7 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
     setfilters,
     insertEvent,
     isLoad,
-    createCalendar
+    createCalendar,
+    insertAcl
   }
 }
