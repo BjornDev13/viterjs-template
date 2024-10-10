@@ -68,7 +68,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
           <img src="/images/logos/google-logo.png" alt="Google logo" />
         </Box>
         <Typography sx={{
-          fontSize: '1.25rem',
+          fontSize: '1rem',
           fontWeight: 700,
           color: 'white',
         }}>

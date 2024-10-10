@@ -1,12 +1,14 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, Chip, Grid, Typography } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, Chip, Grid, IconButton, Typography } from '@mui/material'
 import LoadListBody from './LoadListBody'
 import { formatDate } from '../helpers/dateHelpers'
 import { IconArrowDown } from '@tabler/icons-react'
+import { IconShare } from '@tabler/icons-react'
 
 type ListBodyProps = {
-    data: any
+    data: any;
+    setOpenShareCalendar: any;
 }
-export default function ListBody({ data }: ListBodyProps) {
+export default function ListBody({ data, setOpenShareCalendar }: ListBodyProps) {
 
     
   return (
@@ -30,8 +32,15 @@ export default function ListBody({ data }: ListBodyProps) {
                     variant={undefined}
                     key={v.value}
                     >
-                    <CardContent sx={{ padding: "0 !important", overflow: 'auto' }}>
-                        {v.label}
+                    <CardContent sx={{ padding: "0 !important", overflow: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Typography>
+                            {v.label}
+                        </Typography>
+                        <IconButton
+                            onClick={() => setOpenShareCalendar(v.value)}
+                        >
+                            <IconShare />
+                        </IconButton>
                     </CardContent>
                 </Card>
             ))

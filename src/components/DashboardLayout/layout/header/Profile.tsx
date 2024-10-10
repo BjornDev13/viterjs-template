@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Avatar,
   Box,
@@ -12,14 +12,13 @@ import {
 } from "@mui/material";
 
 import { IconListCheck, IconMail, IconUser } from "@tabler/icons-react";
-import { useAuth } from "@/hooks/useAuth";
 import { useEffect } from "react";
-import { useApiCalendar } from "@/hooks/useApiCalendar";
+import { useApiCalendar } from "../../../../hooks/useApiCalendar";
 
 const Profile = () => {
   const { handleSignOut } = useApiCalendar({ loadEvents: false })
   const [anchorEl2, setAnchorEl2] = useState(null);
-  const [authUser, setAuthUser] = useState(null)
+  const [authUser, setAuthUser] = useState<any>(null)
   const handleClick2 = (event: any) => {
     setAnchorEl2(event.currentTarget);
   };
@@ -28,7 +27,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    const loggedUser = window.sessionStorage.getItem('auth');
+    const loggedUser: any = window.sessionStorage.getItem('auth');
     const user = JSON.parse(loggedUser);
     if (user) {
       console.log('user|||: ', user)
