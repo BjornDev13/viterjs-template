@@ -40,14 +40,14 @@ const Login2 = () => {
           >
             <Card
               elevation={9}
-              sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}
+              sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", alignItems: "center" }}
             >
               <Box
                 sx={{
                   marginLeft: "auto",
                   marginRight: "auto",
                   height: "80px",
-                  width: "300px",
+                  width: "340px",
                   overflow: "hidden",
                   display: "flex",
                   alignItems: "center",
@@ -73,7 +73,7 @@ const Login2 = () => {
                     mb={1}
                     mt={2}
                   >
-                    Citas de Citas Venemergencia
+                    Citas Venemergencia
                   </Typography>
                 }
               />

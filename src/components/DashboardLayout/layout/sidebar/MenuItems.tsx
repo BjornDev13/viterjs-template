@@ -1,3 +1,4 @@
+import { IconCalendarPlus } from "@tabler/icons-react";
 import { IconCalendarDue } from "@tabler/icons-react";
 
 
@@ -15,7 +16,7 @@ const Menuitems = [
   {
     id: 2,
     title: "Calendarios",
-    icon: IconCalendarDue,
+    icon: IconCalendarPlus,
     href: "/calendars",
   },
 

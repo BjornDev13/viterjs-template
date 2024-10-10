@@ -4,15 +4,17 @@ import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Grid, Box, T
 import InputForm from '../global/inputs/InputForm';
 import SelectForm from '../global/SelectForm';
 import { IconPointFilled } from '@tabler/icons-react';
+import InputColor from '../global/InputColor/InputColor';
 
 interface NewCalendarProps {
     open: boolean;
     colors: any;
+    setValue: any;
     onClose: () => void;
     onSubmit: (data: { summary: string, description: string, colorId: number }) => void;
 }
 
-const CreateCalendar: React.FC<NewCalendarProps> = ({ open, onClose, onSubmit, colors }) => {
+const CreateCalendar: React.FC<NewCalendarProps> = ({ open, onClose, onSubmit, colors, setValue }) => {
     const { control, handleSubmit, reset } = useForm<{ summary: string }>({
         defaultValues: { summary: '' },
     });
@@ -54,26 +56,7 @@ const CreateCalendar: React.FC<NewCalendarProps> = ({ open, onClose, onSubmit, c
                             colors.calendar &&
                             (
                                 <Grid item xs={12}>
-                                    <SelectForm
-                                        name="colorId"
-                                        label="Seleccione el color del calendario"
-                                        control={control}
-                                        validations={{
-                                            required: 'El color es requerido'
-                                        }}
-                                        inputProps={{
-                                            autoComplete: 'new-password',
-                                        }}
-                                        data={Object.keys(colors.calendar).map(key => ({
-                                            value: key,
-                                            label: (
-                                                <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                                                  <Typography component="span">{colors.calendar[key].background}</Typography>
-                                                  <IconPointFilled color={colors.calendar[key].background} />
-                                                </Box>
-                                              )
-                                        }))}
-                                    />
+                                    <InputColor colors={colors} setValues={setValue} listColor='calendar' />
                                 </Grid>
 
                             )

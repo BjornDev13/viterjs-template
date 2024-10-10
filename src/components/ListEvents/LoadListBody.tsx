@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, AccordionSummary, AccordionDetails, Skeleton, Box } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Skeleton, Box, LinearProgress } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function LoadListBody() {
@@ -10,6 +10,7 @@ export default function LoadListBody() {
       <Box sx={{
         marginTop: '10px'
       }}>
+        <LinearProgress />
         {skeletonArray.map((_, index) => (
           <Accordion key={index}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>

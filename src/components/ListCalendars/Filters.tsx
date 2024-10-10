@@ -18,7 +18,7 @@ export default function Filters({ control, setfilters, setOpen }: FiltersProps) 
             action={(
                 <Button
                     onClick={() => setOpen(true)}
-                    variant="contained"
+                    variant="outlined"
                     sx={{
                         width: 'fit-content',
                         fontWeight: 'bold'
@@ -121,19 +121,19 @@ export default function Filters({ control, setfilters, setOpen }: FiltersProps) 
                         data={[
                             {
                                 label: '1',
-                                value: 1
+                                value: '1'
                             },
                             {
                                 label: '5',
-                                value: 5
+                                value: '5'
                             },
                             {
                                 label: '10',
-                                value: 10
+                                value: '10'
                             },
                             {
                                 label: '15',
-                                value: 15
+                                value: '15'
                             }
                         ]}
                     />

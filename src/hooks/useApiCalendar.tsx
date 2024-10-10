@@ -104,7 +104,6 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
   const handleItemClick = async (name: string) => {
     if (name === 'sign-in') {
       const data = null
-      console.log('q es etooooo', data)
       return data
     } else if (name === 'sign-out') {
       const data = null
@@ -169,7 +168,6 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
       timeZone: 'America/Caracas'
     }).then((response: any) => {
       setIsLoad(false);
-      console.log('Calendar created', response.result);
       enqueueSnackbar('El calendario fue creado con éxito', {
         variant: 'success'
       });
@@ -236,7 +234,6 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
   const setDefaultColorAndDefaultCalendarId = (calendarId: string) => {
     if (calendarId === 'primary') {
       const calendarColorId = calendars.find((calendar: any) => calendar.primary)
-      console.log('calendarColorId', calendars, calendarId, calendarColorId)
       setCalendaColorHas(calendarColorId.backgroundColor)
       callBack(calendarColorId.value)
     }
@@ -286,7 +283,7 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
       getColors()
       listCalendars()
     } else {
-      setIsAuth(false)
+      console.log('is nono', gapiLoaded, isAuth)
       setCalendars([])
       setColors(null)
     }
@@ -296,13 +293,15 @@ export const useApiCalendar = ({ loadEvents = false, callBack, onlyFindCalendars
   useEffect(() => {
     if (!loadEvents) return
     if (gapiLoaded && calendars.length > 0 && isAuth) {
-
+      console.log('is inside', isAuth)
       if (filtersEvents.calendarId === 'primary') {
         setDefaultColorAndDefaultCalendarId(filtersEvents.calendarId)
         listUpcomingEvents(filtersEvents)
       } else {
         listUpcomingEvents(filtersEvents)
       }
+    }else {
+      console.log('is outside',gapiLoaded, calendars,isAuth)
     }
   }, [loadEvents, gapiLoaded, calendars, filtersEvents, isAuth])
 

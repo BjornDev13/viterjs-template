@@ -34,16 +34,21 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
         size="large"
         sx={{
             width: 'fit-content',
-            backgroundColor: "primary.main",
+            padding: '5px',
+            backgroundColor: "rgb(59 130 246)",
             fontWeight: 700,
             color: 'white',
             display: 'flex',
             alignItems: 'center',
-            borderRadius: '20px',
+            border: 'none',
+            borderTopLeftRadius: '50px',
+            borderBottomLeftRadius: '50px',
+            borderTopRightRadius: '5px',
+            borderBottomRightRadius: '5px',
             marginLeft: 'auto',
             marginRight: 'auto',
             justifyContent: 'flex-start',
-            ":hover": { backgroundColor: "primary.main" }
+            ":hover": { backgroundColor: "rgb(59 130 246)", border: 'none' }
           }}
         onClick={handleSignIn}
       >
@@ -52,17 +57,23 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
             width: '70px',
             height: '70px',
             backgroundColor: 'white',
-            borderRadius: '20px',
+            borderRadius: '50px',
             padding: '5px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight: '8px'
+            marginRight: '8px',
           }}
         >
           <img src="/images/logos/google-logo.png" alt="Google logo" />
         </Box>
-        Ingresar con cuenta de Google
+        <Typography sx={{
+          fontSize: '1.25rem',
+          fontWeight: 700,
+          color: 'white',
+        }}>
+          Iniciar sesión con Google
+        </Typography>
       </Button>
     </Box>
     {subtitle}

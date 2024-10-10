@@ -63,7 +63,7 @@ export default function ListCalendars() {
             <ListBody data={calendars}  />
           )
         }
-        <CreateCalendar open={open} onClose={() => setOpen(false)} onSubmit={createCalendar} colors={colors} />
+        <CreateCalendar open={open} onClose={() => setOpen(false)} onSubmit={createCalendar} colors={colors} setValue={setValue} />
     </Box>
   )
 }

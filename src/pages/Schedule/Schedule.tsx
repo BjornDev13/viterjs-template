@@ -49,7 +49,7 @@ interface Inputs {
 export default function Schedule() {
     const [step, setStep] = useState(1)
     const [notAvailableDays, setNotAvailableDays] = useState(null)
-    const { checkAvailability, calendars, insertEvent } = useApiCalendar({ loadEvents: false })
+    const { checkAvailability, calendars, insertEvent, colors, isLoad } = useApiCalendar({ loadEvents: false })
     const {
         control,
         handleSubmit,
@@ -67,6 +67,7 @@ export default function Schedule() {
             end: new Date(new Date().setHours(23, 59, 59, 999)),
             anyoneCanAddSelf: false,
             attendees: [],
+            location: '',
             colorId: '',
             description: '',
             eventType: 'default',
@@ -99,7 +100,7 @@ export default function Schedule() {
             case 2:
                 return (
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <StepTwo control={control} getValues={getValues} setStep={setStep} />
+                        <StepTwo isLoad={isLoad} colors={colors} setValues={setValue} control={control} getValues={getValues} setStep={setStep} />
                     </form>
                 )
             default:
@@ -138,7 +139,7 @@ export default function Schedule() {
             sendUpdates: data.sendUpdates,
             anyoneCanAddSelf: data.anyoneCanAddSelf,
             attendees: data.attendees,
-            // colorId: data.colorId,
+            colorId: data.colorId,
             description: data.description,
             eventType: data.eventType,
             status: data.status,

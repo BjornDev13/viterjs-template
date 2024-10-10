@@ -12,9 +12,10 @@ type FiltersProps = {
     calendars: any;
     setCalendarSelected: (a: any) => void;
     setfilters: (a: any) => void;
+    isLoad: boolean
 }
 
-export default function Filters({ control, calendars, setCalendarSelected, setfilters }: FiltersProps) {
+export default function Filters({ isLoad, control, calendars, setCalendarSelected, setfilters }: FiltersProps) {
     const navigate = useNavigate();
 
     return (
@@ -22,8 +23,9 @@ export default function Filters({ control, calendars, setCalendarSelected, setfi
             title="Filtros"
             action={(
                 <Button
+                    disabled={isLoad}
                     onClick={() => navigate("/schedule")}
-                    variant="contained"
+                    variant="outlined"
                     sx={{
                         width: 140,
                         fontWeight: 'bold'
@@ -135,8 +137,8 @@ export default function Filters({ control, calendars, setCalendarSelected, setfi
                     >
                     <DatePickerForm
                         control={control}
-                        name='timeMin'
-                        label='Tiempo minimo'
+                        name='imeMin'
+                        label='Desde'
                         required
                         fullWidth
                         disableFuture
@@ -164,7 +166,7 @@ export default function Filters({ control, calendars, setCalendarSelected, setfi
                     <DatePickerForm
                         control={control}
                         name='timeMax'
-                        label='Tiempo Maximo'
+                        label='Hasta'
                         required
                         fullWidth
                         disablePast
@@ -218,6 +220,7 @@ export default function Filters({ control, calendars, setCalendarSelected, setfi
                     >
                         <IconButton
                             type='submit'
+                            disabled={isLoad}
                             sx={{
                                 backgroundColor: 'primary.main',
                                 color: 'white',

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, Stack, Box } from "@mui/material";
+import { Card, CardContent, Typography, Stack, Box, LinearProgress } from "@mui/material";
 
 type Props = {
   title?: string;
@@ -12,6 +12,7 @@ type Props = {
   children?: JSX.Element;
   middlecontent?: string | JSX.Element;
   sx?: any;
+  showProgress?: boolean;
 };
 
 const DashboardCard = ({
@@ -24,10 +25,14 @@ const DashboardCard = ({
   headtitle,
   headsubtitle,
   middlecontent,
+  showProgress = false,
   sx,
 }: Props) => {
   return (
-    <Card sx={{ padding: 0, ...sx }} elevation={9} variant={undefined}>
+    <Card sx={{ padding: 0, ...sx, position: 'relative' }} elevation={9} variant={undefined}>
+      {
+        showProgress && <LinearProgress />
+      }
       {cardheading ? (
         <CardContent>
           <Typography variant="h5">{headtitle}</Typography>

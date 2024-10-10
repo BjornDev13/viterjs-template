@@ -70,7 +70,7 @@ export default function ListEvents() {
         }}
     >
         <form onSubmit={handleSubmit(submit)}>
-            <Filters control={control} calendars={calendars} setCalendarSelected={setCalendarColor} setfilters={setfilters} />
+            <Filters isLoad={isLoad} control={control} calendars={calendars} setCalendarSelected={setCalendarColor} setfilters={setfilters} />
         </form>
         {
           isLoad ? (
